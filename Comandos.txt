@@ -1,0 +1,14 @@
+#Crear bucket
+aws --endpoint-url=http://localhost:4566 s3 mb s3://mi-bucket-local
+
+#Desplegar lambda 
+aws --endpoint-url=http://localhost:4566 lambda create-function --function-name procesar-ventas --runtime python3.8 --zip-file fileb://lambda_function.zip --handler lambda_function.handler --role arn:aws:iam::000000000000:role/lambda-role
+
+#Aumentar timeout
+aws --endpoint-url=http://localhost:4566 lambda update-function-configuration --function-name procesar-ventas --timeout 120
+
+#Invocar lambda
+aws --endpoint-url=http://localhost:4566 lambda invoke --function-name procesar-ventas output.txt
+
+#Revisar contenido bucket
+aws --endpoint-url=http://localhost:4566 s3 ls s3://mi-bucket-local/
