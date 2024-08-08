@@ -38,7 +38,7 @@ def handler(event, context):
     
     # Subir el archivo Excel a S3
     s3 = boto3.client('s3', endpoint_url='http://localhost:4566')
-    bucket_name = 'mi-bucket-local'
+    bucket_name = 'demo'
     s3.put_object(Bucket=bucket_name, Key='ventas.xlsx', Body=excel_buffer, ContentType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     
     # Cerrar conexiones
