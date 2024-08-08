@@ -17,5 +17,3 @@ env/
 *.sqlite3
 *.db
 .DS_Store
-
-*.zip

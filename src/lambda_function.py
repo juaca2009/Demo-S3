@@ -6,12 +6,13 @@ from io import BytesIO
 def handler(event, context):
     # Conexión a la base de datos PostgreSQL
     conn = psycopg2.connect(
-        host="localhost",
+        host="postgres", 
         database="mydatabase",
         user="user",
         password="password",
-        port=5432
+        port="5432"
     )
+
     cursor = conn.cursor()
     
     # Consultar la tabla de ventas
@@ -37,7 +38,7 @@ def handler(event, context):
     excel_buffer.seek(0)
     
     # Subir el archivo Excel a S3
-    s3 = boto3.client('s3', endpoint_url='http://localhost:4566')
+    s3 = boto3.client('s3', endpoint_url='http://localstack:4566')
     bucket_name = 'demo'
     s3.put_object(Bucket=bucket_name, Key='ventas.xlsx', Body=excel_buffer, ContentType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     
