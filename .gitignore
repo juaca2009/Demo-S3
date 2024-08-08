@@ -1,0 +1,19 @@
+# Ignorar la carpeta localstack
+/localstack/
+
+# Ignorar archivos de caché de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignorar archivos de entornos virtuales de Python
+venv/
+.env/
+env/
+
+# Ignorar otros archivos comunes
+*.log
+*.sqlite3
+*.db
+.DS_Store
