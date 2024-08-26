@@ -5,7 +5,7 @@ services:
       - "4566:4566"
       - "4571:4571"
     environment:
-      - SERVICES=s3,lambda
+      - SERVICES=s3,lambda,secretsmanager,ssm
       - EDGE_PORT=4566
       - AWS_DEFAULT_REGION=us-east-1
     volumes:
